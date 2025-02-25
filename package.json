@@ -1,0 +1,20 @@
+{
+  "name": "tasker-backend",
+  "version": "1.0.0",
+  "description": "backend services for tasker application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "tasker-backend"
+  },
+  "author": "ionutprodea",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "joi": "^17.13.3",
+    "mongoose": "^8.10.2"
+  }
+}
