@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 const users = require('./routes/users');
 const tasks = require('./routes/tasks');
+const auth = require('./routes/auth');
 
 app.use(express.json());
 
@@ -12,6 +13,7 @@ mongoose.connect("mongodb+srv://ionutprodea:tXiuxliWpZOkRRyO@cluster0.bvwhm.mong
 
 app.use("/api/users", users);
 app.use("/api/tasks", tasks);
+app.use("/api/auth", auth);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on ${port}...`));
