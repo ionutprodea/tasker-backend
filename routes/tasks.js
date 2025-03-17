@@ -10,13 +10,13 @@ router.post("/",auth, async(req, res) => {
     if(error) return res.status(400).send(error.details[0].message);
     let task = await Task.findOne( {task: req.body.task, date: req.body.date});
     if(task) return res.status(400).send('The task already exists for the selected date');
-    task = new Task({task: req.body.task, importance: req.body.importance, date: req.body.date, details: req.body.details});
+    task = new Task({task: req.body.task, importance: req.body.importance, date: req.body.date, details: req.body.details, userId: req.user._id});
     await task.save();
     res.send(task);
 });
 
 router.get("/",auth, async(req, res) => {
-    const tasks = await Task.find();
+    const tasks = await Task.find({userId: req.user._id});
     res.send(tasks);
 })
 

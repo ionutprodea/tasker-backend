@@ -35,6 +35,12 @@ const taskSchema = new mongoose.Schema({
         required: true,
         min: 8,
         max: 500
+    },
+
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true 
     }
 });
 
