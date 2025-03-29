@@ -4,8 +4,11 @@ const app = express();
 const users = require('./routes/users');
 const tasks = require('./routes/tasks');
 const auth = require('./routes/auth');
+const cors = require('cors');
 
+app.use(cors());
 app.use(express.json());
+
 
 mongoose.connect("mongodb+srv://ionutprodea:tXiuxliWpZOkRRyO@cluster0.bvwhm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/tasker")
     .then(() => console.log('Connected to Tasker database...'))
