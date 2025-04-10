@@ -6,7 +6,10 @@ const tasks = require('./routes/tasks');
 const auth = require('./routes/auth');
 const cors = require('cors');
 
-app.use(cors());
+app.use(cors({
+    origin: "*",
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
+}));
 app.use(express.json());
 
 
