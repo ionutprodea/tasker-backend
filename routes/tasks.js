@@ -17,6 +17,12 @@ router.post("/",auth, async(req, res) => {
     res.send(task);
 });
 
+router.put("/:id", auth, async(req, res) => {
+    const task = await Task.findByIdAndUpdate(req.params.id, {checked: req.body.checked});
+    if (!task) return res.status(404).send("The task with the give ID was not found");
+    res.send(task);
+})
+
 router.get("/",auth, async(req, res) => {
     const tasks = await Task.find({userId: req.user._id});
     res.send(tasks);
