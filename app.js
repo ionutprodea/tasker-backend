@@ -17,7 +17,7 @@ app.use(express.json());
 
 const database = process.env.DATABASE_URL;
 
-mongoose.connect(database)
+mongoose.connect("mongodb+srv://ionutprodea:tXiuxliWpZOkRRyO@cluster0.bvwhm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/tasker")
     .then(() => console.log('Connected to Tasker database...'))
     .catch(err => console.log('Could not connect to database', err));
 
