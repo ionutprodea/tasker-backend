@@ -8,10 +8,8 @@ const cors = require('cors');
 require("dotenv").config()
 
 app.use(cors({
-    origin: "https://tasker-app-wheat.vercel.app",
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ["Authorization"],
-    credentials: true
+    origin: "*",
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
 }));
 app.use(express.json());
 
