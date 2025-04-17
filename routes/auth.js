@@ -29,9 +29,4 @@ function validate(req) {
     return schema.validate(req);
 }
 
-function comparePassword(req, password) {
-    if (req === password) return true
-    else return false
-}
-
 module.exports = router;

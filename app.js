@@ -5,6 +5,7 @@ const users = require('./routes/users');
 const tasks = require('./routes/tasks');
 const auth = require('./routes/auth');
 const cors = require('cors');
+require("dotenv").config()
 
 app.use(cors({
     origin: "*",
@@ -12,8 +13,9 @@ app.use(cors({
 }));
 app.use(express.json());
 
+const database = process.env.DATABASE_URL;
 
-mongoose.connect("mongodb+srv://ionutprodea:tXiuxliWpZOkRRyO@cluster0.bvwhm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/tasker")
+mongoose.connect(database)
     .then(() => console.log('Connected to Tasker database...'))
     .catch(err => console.log('Could not connect to database', err));
 
