@@ -23,6 +23,12 @@ router.put("/:id/checkbox", auth, async(req, res) => {
     res.send("Task status updated for task id:" + task._id);
 })
 
+router.put("/:id", auth, async(req, res) => {
+    const task = await Task.findByIdAndUpdate(req.params.id, {importance: req.body.importance, task:req.body.task, date:req.body.date, details: req.body.details});
+    if (!task) return res.status(404).send("The task with the give ID was not found");
+    res.send("Task status updated for task id:" + task._id);
+})
+
 router.get("/",auth, async(req, res) => {
     const tasks = await Task.find({userId: req.user._id});
     res.send(tasks);
