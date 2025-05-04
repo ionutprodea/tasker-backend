@@ -31,7 +31,14 @@ router.put("/:id", auth, async(req, res) => {
 
 router.get("/",auth, async(req, res) => {
     const tasks = await Task.find({userId: req.user._id});
+    if(!tasks) return res.status(404).send("No tasks found for provided user ID");
     res.send(tasks);
+})
+
+router.get("/:id", auth, async(req, res) => {
+    const task = await Task.findById(req.params.id);
+    if (!task) return res.status(404).send("The task with the give ID was not found");
+    res.send(task);
 })
 
 router.delete("/:id",auth, async(req, res) => {
