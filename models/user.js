@@ -35,6 +35,11 @@ const userSchema = new mongoose.Schema({
         required: true,
         min: 6,
         max: 1024
+    },
+
+    isGold: {
+        type: Boolean,
+        default: false
     }
 })
 
